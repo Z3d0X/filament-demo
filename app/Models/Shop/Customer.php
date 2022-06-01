@@ -45,4 +45,9 @@ class Customer extends Model
     {
         return $this->hasMany(Review::class, 'shop_customer_id');
     }
+
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class, 'shop_customer_id');
+    }
 }

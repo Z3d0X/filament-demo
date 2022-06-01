@@ -8,6 +8,7 @@ use App\Forms\Components\AddressForm;
 use App\Models\Shop\Customer;
 use Filament\Forms;
 use Filament\Resources\Form;
+use Filament\Resources\RelationManagers\RelationGroup;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
@@ -92,7 +93,14 @@ class CustomerResource extends Resource
     public static function getRelations(): array
     {
         return [
-            RelationManagers\ReviewsRelationManager::class,
+            RelationGroup::make('Relations', [
+                RelationManagers\ReviewsRelationManager::class,
+                RelationManagers\OrdersRelationManager::class,
+            ]),
+            RelationGroup::make('Another Group', [
+                RelationManagers\ReviewsRelationManager::class,
+                RelationManagers\OrdersRelationManager::class,
+            ]),
         ];
     }
 
