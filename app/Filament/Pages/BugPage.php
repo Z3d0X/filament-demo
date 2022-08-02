@@ -13,14 +13,15 @@ class BugPage extends Page
     protected static string $view = 'filament.pages.bug-page';
 
     public $children_no;
+
     public $children_ages;
- 
+
     public function mount(): void
     {
         $this->form->fill();
     }
- 
-    protected function getFormSchema(): array 
+
+    protected function getFormSchema(): array
     {
         return [
             TextInput::make('children_no')
@@ -39,8 +40,8 @@ class BugPage extends Page
                 ->disableDeletingRows()
                 ->disableEditingKeys(),
         ];
-    } 
- 
+    }
+
     public function submit(): void
     {
         dd($this->form->getState());
