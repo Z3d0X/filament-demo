@@ -11,6 +11,7 @@ use Filament\Tables;
 class CommentsRelationManager extends RelationManager
 {
     protected static string $relationship = 'comments';
+
     protected static ?string $inverseRelationship = 'commentable';
 
     protected static ?string $recordTitleAttribute = 'title';
