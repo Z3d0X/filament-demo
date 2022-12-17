@@ -11,6 +11,7 @@ use Filament\Tables;
 class CommentsRelationManager extends RelationManager
 {
     protected static string $relationship = 'comments';
+    protected static ?string $inverseRelationship = 'commentable';
 
     protected static ?string $recordTitleAttribute = 'title';
 
@@ -60,6 +61,7 @@ class CommentsRelationManager extends RelationManager
             ])
             ->headerActions([
                 Tables\Actions\CreateAction::make(),
+                Tables\Actions\AssociateAction::make(),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
